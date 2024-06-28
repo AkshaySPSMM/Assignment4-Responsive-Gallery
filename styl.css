@@ -1,0 +1,99 @@
+/* Basic styles for the body and container */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+main {
+    padding: 20px;
+}
+
+.container h1 {
+    margin: 20px 0;
+}
+
+/* Basic styles for the gallery items */
+.griditem, .flexitem {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.griditem img, .flexitem img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+/* Grid Layout */
+.Grid {
+    display: grid;
+    gap: 10px;
+    justify-content: center; /* Center align items horizontally */
+    align-items: center; /* Center align items vertically */
+}
+
+/* Large screens (1200px and above) - 4-column grid */
+@media (min-width: 1200px) {
+    .Grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Medium screens (768px to 1199px) - 2-column grid */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .Grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small screens (below 768px) - 1-column grid */
+@media (max-width: 767px) {
+    .Grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Flex Layout */
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center; /* Center align items horizontally */
+    align-items: center; /* Center align items vertically */
+}
+
+/* Large screens (1200px and above) - 4-column flex */
+@media (min-width: 1200px) {
+    .flex .flexitem {
+        flex: 1 0 21%; /* 4 items in a row, adjust as needed */
+    }
+}
+
+/* Medium screens (768px to 1199px) - 2-column flex */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .flex .flexitem {
+        flex: 1 0 48%; /* 2 items in a row, adjust as needed */
+    }
+}
+
+/* Small screens (below 768px) - 1-column flex */
+@media (max-width: 767px) {
+    .flex {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .flex .flexitem {
+        flex: none; /* Remove flex properties */
+    }
+}
